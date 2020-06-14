@@ -4,12 +4,11 @@ import Message from "./message.js";
 
 function App() {
   let [counter, setCounter] = useState(0);
-  let [isMorning, setMorning] = useState(false);
   return (
     <div
-      className={`body ${isMorning ? "Morning" : "body"} ${
-        counter >= 5 ? "semi-danger" : "body"
-      } ${counter >= 7 ? "danger" : " "} `}
+      className={`body ${counter >= 5 ? "semi-danger" : "body"} ${
+        counter >= 7 ? "danger" : " "
+      } `}
     >
       <h1>hi this is the msg</h1>
       <Message count={counter} />
