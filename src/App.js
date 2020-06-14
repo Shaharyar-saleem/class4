@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Message from "./message.js";
 
 function App() {
+  let [counter, setCounter] = useState(0);
+  let [isMorning, setMorning] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className={`body ${isMorning ? "Morning" : "body"} ${
+        counter >= 5 ? "semi-danger" : "body"
+      } ${counter >= 7 ? "danger" : " "} `}
+    >
+      <Message count={counter} />
+      <button onClick={() => setCounter(++counter)}>Add value</button>
+      <button onClick={() => setCounter(0)}>Reset</button>
     </div>
   );
 }
